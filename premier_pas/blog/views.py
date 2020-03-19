@@ -1,5 +1,6 @@
 #from django.shortcuts import render
 from django.http import HttpResponse, Http404
+from django.shortcuts import redirect
 
 # Create your views here.
 
@@ -13,8 +14,6 @@ def home(request):
 #passage par année et mois
 def view_article(request, annee, mois):
 		if (annee <= 2020) & (annee >= 0) & (mois <= 12) & (mois >=1):
-			return HttpResponse(
-				"Article du {0}/{1}".format(mois, annee)
-			)
+			return redirect("https://www.djangoproject.com")
 		else:
 			raise Http404
