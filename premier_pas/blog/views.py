@@ -10,8 +10,13 @@ def home(request):
         <p>Bienvenue dans l'acceuil </p>
     """)
 
-#passage par identifiant 
-def view_article(request, id_article):
-	return HttpResponse(
-		"Vous avez demandé l'article {0}".format(id_article)
-	)
+#passage par année et mois
+def view_article(request, annee, mois):
+		if (annee <= 2020) & (annee >= 0) & (mois <= 12) & (mois >=1):
+			return HttpResponse(
+				"Article du {0}/{1}".format(mois, annee)
+			)
+		else:
+			return HttpResponse(
+				"Format de l'annee ou du mois incorrect "
+			)
