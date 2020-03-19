@@ -1,5 +1,5 @@
 #from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 
 # Create your views here.
 
@@ -17,6 +17,4 @@ def view_article(request, annee, mois):
 				"Article du {0}/{1}".format(mois, annee)
 			)
 		else:
-			return HttpResponse(
-				"Format de l'annee ou du mois incorrect "
-			)
+			raise Http404
